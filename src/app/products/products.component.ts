@@ -24,7 +24,12 @@ export class ProductsComponent implements OnInit {
   ngOnInit(): void {
     this.getProducts();
   }
-
+  
+  /**
+   * Obtém os produtos do servidor.
+   * 
+   * @returns Um Observable que emite os dados dos produtos.
+   */
   getProducts() {
     this.showSpinner = true;
     this.productService.getProducts().subscribe({
@@ -39,14 +44,24 @@ export class ProductsComponent implements OnInit {
         });
       }
     });
+  
   }
 
+  /**
+   * Abre um dialog para adicionar um produto.
+   */
   openDialog() {
     this.dialog.open(AddProductComponent, {
       width: '40%',
     });
   }
 
+ 
+  /**
+   * Abre um dialog de edição de um produto.
+   * 
+   * @param product - O produto a ser editado.
+   */
   editProduct(product: Product) {
     this.dialog.open(AddProductComponent, {
       data: product,
@@ -54,6 +69,11 @@ export class ProductsComponent implements OnInit {
     });
   }
 
+  /**
+   * Deleta um produto.
+   * 
+   * @param product - O objeto do produto a ser deletado.
+   */
   deleteProduct(product: any) {
     this.productService.deleteProduct(product.id).subscribe({
       next: (res) => {

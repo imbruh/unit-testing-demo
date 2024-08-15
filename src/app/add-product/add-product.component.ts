@@ -39,6 +39,14 @@ export class AddProductComponent implements OnInit {
     });
   }
 
+  /**
+   * Salva um produto.
+   * 
+   * @remarks
+   * Este método é responsável por salvar um produto. Se o objeto `data` estiver vazio, um novo produto será adicionado. Caso contrário, o produto existente será atualizado.
+   * 
+   * @returns Nenhum valor de retorno.
+   */
   saveProduct() {
     const product = this.productForm.value as Product;
     if (Object.keys(this.data).length) {

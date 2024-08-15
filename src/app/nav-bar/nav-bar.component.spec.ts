@@ -23,7 +23,15 @@ describe('NavBarComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should check menuItems array is initialized', () => {});
-
-  it('should check menuItem is rendered', () => {});
+  it('should check menuItems array is initialized', () => { 
+    expect(component.menuItems).not.toBeUndefined();
+  });
+  
+  it('should check menuItem is rendered', () => {
+    expect(component.menuItems.length).toBeGreaterThan(0);
+    expect(component.menuItems[0].name).toEqual('Home')
+    expect(component.menuItems[1].name).toEqual('Gallery')
+    expect(component.menuItems[2].name).toEqual('About Us')
+    expect(component.menuItems[3].name).toEqual('Contact Us')
+  });
 });
